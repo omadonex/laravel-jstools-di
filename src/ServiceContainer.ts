@@ -24,7 +24,7 @@ export class ServiceContainer {
       const classInfo: ClassInfoInterface = this.classMap[className];
       const instance = classInfo.closure(params);
 
-      if (Object.getPrototypeOf(instance) === Service) {
+      if (instance instanceof Service) {
         const dependsList: string[] = instance.getServiceDependsList();
         const serviceList: ServiceListInterface = {};
         dependsList.forEach((item, i, arr) => {
